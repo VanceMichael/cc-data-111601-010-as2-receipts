@@ -1,0 +1,4 @@
+Content-Type: application/edi-x12
+Content-Transfer-Encoding: binary
+
+ISA*LOCAL-SYNTHETIC~

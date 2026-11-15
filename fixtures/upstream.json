@@ -1,0 +1,29 @@
+{
+  "catalog": {
+    "entry": "/delivery",
+    "receipt": "/receipts",
+    "variants": [
+      "/primary",
+      "/conflicting",
+      "/base64"
+    ]
+  },
+  "resources": {
+    "/primary": {
+      "file": "primary.bin",
+      "type": "application/edi-x12"
+    },
+    "/delivery": {
+      "file": "resource-01.bin",
+      "type": "application/json"
+    },
+    "/conflicting": {
+      "file": "resource-02.bin",
+      "type": "application/octet-stream"
+    },
+    "/base64": {
+      "file": "resource-03.bin",
+      "type": "application/octet-stream"
+    }
+  }
+}

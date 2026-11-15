@@ -1,0 +1,1 @@
+{"messageId":"<benefit-001@local.invalid>","as2From":"benefit-source","as2To":"benefit-inbox","entity":"/primary","receiptMode":"async","receiptUrl":"/receipts","micAlgorithm":"sha-256","signature":"none"}
