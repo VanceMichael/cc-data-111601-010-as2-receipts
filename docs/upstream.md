@@ -2,7 +2,7 @@
 
 ## 产品交换范围
 
-此处只联调未签名、未加密的 AS2 profile：Content-Type、Content-Transfer-Encoding(binary/base64)、AS2-From/To、Message-ID、Disposition-Notification-To、Receipt-Delivery-Option、Disposition-Notification-Options。以 /delivery 元数据构造合法 HTTP 收件，MIC 算法支持 sha-256。MIC 依据本 profile 为按 MIME 传输编码解码后、保留 MIME 头且头/文本行结束为 CRLF 的 MIME 实体；规范原件 bytes 与 MIC 输入两者均需能定位，不能用 JSON 重建正文。二进制 body 不做换行正规化。MDN 按 multipart/report、message/disposition-notification 表达 Original-Message-ID、Final-Recipient、Disposition 和 Received-content-MIC。同一发送方/接收方/Message-ID 重投须比较原件摘要；异步 /receipts 为独立目标，阶段 1 返回 503。无签名不提供来源身份认证。
+此处只联调未签名、未加密的 AS2 profile：Content-Type、Content-Transfer-Encoding(binary/base64)、AS2-From/To、Message-ID、Disposition-Notification-To、Receipt-Delivery-Option、Disposition-Notification-Options。以 /delivery 元数据构造合法 HTTP 收件，双方约定 MIC 算法 sha-256。按 RFC 4130 §7.3.1，未签名且未加密时 MIC 对传输解码后的消息内容计算，不包含 MIME 或其他 RFC 2822 头；原始 MIME 实体摘要与 MIC 是不同依据，均须可定位，不能用 JSON 重新生成正文。当前内容类型为二进制 application/edi-x12，不做正文换行正规化；不实现已签名/加密路径。MDN 按 multipart/report、message/disposition-notification 表达 Original-Message-ID、Final-Recipient、Disposition 和 Received-content-MIC。同一发送方/接收方/Message-ID 重投须比较原件摘要；异步 /receipts 为独立目标，阶段 1 返回 503。无签名不提供来源身份认证。
 
 ## 当前来源路由
 
